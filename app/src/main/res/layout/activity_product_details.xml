@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/product_view_padding"
+    tools:context=".view.ProductDetailsActivity">
+
+    <TextView
+        android:id="@+id/product_title_textview"
+        style="@style/TextAppearance.MaterialComponents.Headline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_margin="@dimen/title_margin"
+        tools:text="Nazwa produktu" />
+
+    <LinearLayout
+        android:id="@+id/quantity_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/text_margin_horizontal"
+            android:layout_marginVertical="@dimen/text_margin_vertical"
+            android:text="@string/quantity" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/text_margin_horizontal"
+            android:layout_marginVertical="@dimen/text_margin_vertical"
+            android:id="@+id/product_quantity_textview"
+            tools:text="100ml" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/priority_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/text_margin_horizontal"
+            android:layout_marginVertical="@dimen/text_margin_vertical"
+            android:text="@string/priority" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/text_margin_horizontal"
+            android:layout_marginVertical="@dimen/text_margin_vertical"
+            tools:text="@string/priority_high"
+            android:id="@+id/product_priority_textview"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/categories_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/text_margin_horizontal"
+            android:layout_marginVertical="@dimen/text_margin_vertical"
+            android:text="@string/categories" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/categories_chip_group">
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </LinearLayout>
+
+</LinearLayout>
