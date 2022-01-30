@@ -10,4 +10,7 @@
     <string name="categories">Kategorie</string>
     <string name="priority">Priorytet</string>
     <string name="priority_high">wysoki</string>
+    <string name="bottom_menu_recipes">Przepisy</string>
+    <string name="bottom_menu_products">Produkty</string>
+    <string name="bottom_menu_categories">Kategorie</string>
 </resources>

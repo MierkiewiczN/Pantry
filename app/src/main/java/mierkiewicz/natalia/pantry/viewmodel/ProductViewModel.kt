@@ -60,5 +60,72 @@ private val products = mutableListOf(
         categories = listOf(productCategories[1], productCategories[2], productCategories[0]),
         quantity = QuantityLevel.HIGH,
         importance = ImportanceLevel.LOW
+    ),
+    Product(
+        name = "Product 5",
+        categories = listOf(productCategories[0]),
+        quantity = QuantityLevel.MEDIUM,
+        importance = ImportanceLevel.HIGH
+    ),
+    Product(
+        name = "Product 6",
+        categories = listOf(productCategories[1], productCategories[2]),
+        quantity = QuantityLevel.MEDIUM,
+        importance = ImportanceLevel.MEDIUM
+    ),
+    Product(
+        name = "Product 7",
+        categories = listOf(productCategories[2]),
+        quantity = QuantityLevel.LOW,
+        importance = ImportanceLevel.HIGH
+    ),
+    Product(
+        name = "Product 8",
+        categories = listOf(productCategories[1], productCategories[2]),
+        quantity = QuantityLevel.MEDIUM,
+        importance = ImportanceLevel.MEDIUM
+    ),
+    Product(
+        name = "Product 9",
+        categories = listOf(productCategories[2]),
+        quantity = QuantityLevel.LOW,
+        importance = ImportanceLevel.HIGH
+    ),
+    Product(
+        name = "Product 10",
+        categories = listOf(productCategories[1], productCategories[2], productCategories[0]),
+        quantity = QuantityLevel.HIGH,
+        importance = ImportanceLevel.LOW
+    ),
+    Product(
+        name = "Product 11",
+        categories = listOf(productCategories[1], productCategories[2], productCategories[0]),
+        quantity = QuantityLevel.HIGH,
+        importance = ImportanceLevel.LOW
+    ),
+    Product(
+        name = "Product 12",
+        categories = listOf(productCategories[0]),
+        quantity = QuantityLevel.MEDIUM,
+        importance = ImportanceLevel.HIGH
+    ),
+    Product(
+        name = "Product 13",
+        categories = listOf(productCategories[1], productCategories[2], productCategories[0]),
+        quantity = QuantityLevel.HIGH,
+        importance = ImportanceLevel.LOW
+    ),
+    Product(
+        name = "Product 14",
+        categories = listOf(productCategories[1], productCategories[2], productCategories[0]),
+        quantity = QuantityLevel.HIGH,
+        importance = ImportanceLevel.LOW
+    ),
+    Product(
+        name = "Product 15",
+        categories = listOf(productCategories[0]),
+        quantity = QuantityLevel.MEDIUM,
+        importance = ImportanceLevel.HIGH
     )
+
 )

@@ -4,4 +4,5 @@
     <dimen name="text_margin_horizontal">8dp</dimen>
     <dimen name="text_margin_vertical">4dp</dimen>
     <dimen name="product_view_padding">24dp</dimen>
+    <dimen name="fragment_margin_top">8dp</dimen>
 </resources>
