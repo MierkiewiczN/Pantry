@@ -17,25 +17,25 @@
             android:id="@+id/product_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/text_margin_horizontal"
-            android:layout_marginVertical="@dimen/text_margin_vertical"
-            android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textColor="@color/cardview_title_color"
+            android:textSize="@dimen/cardview_title_size"
+            android:layout_margin="@dimen/cardview_title_margin"
             android:text="Product name"/>
 
         <TextView
             android:id="@+id/product_quantity"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/text_margin_horizontal"
-            android:layout_marginVertical="@dimen/text_margin_vertical"
-            android:textColor="#333"
-            android:textSize="14sp"
+            android:textColor="@color/cardview_details_color"
+            android:textSize="@dimen/cardview_details_size"
+            android:layout_marginTop="@dimen/cardiew_details_margin_top"
+            android:layout_marginBottom="@dimen/cardview_details_margin_bottom"
+            android:layout_marginHorizontal="@dimen/cardview_details_margin_horizontal"
             android:text="123"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/cardview_shadow_start_color"
+            android:background="@color/cardview_space"
             />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

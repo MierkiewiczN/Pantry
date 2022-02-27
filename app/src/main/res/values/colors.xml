@@ -8,5 +8,8 @@
     <color name="secondary_basic">#ab47bc</color>
     <color name="secondary_light">#df78ef</color>
     <color name="secondary_dark">#790e8b</color>
+    <color name="cardview_space">#ccd</color>
+    <color name="cardview_title_color">#111111</color>
+    <color name="cardview_details_color">#333</color>
 
 </resources>

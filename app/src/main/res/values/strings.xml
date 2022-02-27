@@ -10,7 +10,20 @@
     <string name="categories">Kategorie</string>
     <string name="priority">Priorytet</string>
     <string name="priority_high">wysoki</string>
+    <string name="priority_low">niski</string>
+    <string name="priority_medium">średni</string>
     <string name="bottom_menu_recipes">Przepisy</string>
     <string name="bottom_menu_products">Produkty</string>
     <string name="bottom_menu_categories">Kategorie</string>
+    <string name="title_activity_category_detail_host">CategoryDetailHostActivity</string>
+    <string name="title_category_list">Categories</string>
+    <string name="title_category_detail">Category Detail</string>
+    <string name="title_activity_item_detail_host">ItemDetailHostActivity</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="quantity_high">wysoka</string>
+    <string name="quantity_low">niska</string>
+    <string name="quantity_medium">średnia</string>
+    <string name="product_name">Nazwa produktu</string>
+    <string name="category_name">Nazwa kategorii</string>
 </resources>
