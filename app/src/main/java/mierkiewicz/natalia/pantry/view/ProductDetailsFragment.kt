@@ -18,7 +18,7 @@ import mierkiewicz.natalia.pantry.viewmodel.ProductViewModel
 class ProductDetailsFragment : Fragment() {
 
     private val productViewModel = ProductViewModel()
-    private  var productName: String? = null
+    private  var productId: Int? = null
     lateinit var toolbarLayout: CollapsingToolbarLayout
     lateinit var productQuantity: TextView
     lateinit var productPriority: TextView
@@ -27,7 +27,7 @@ class ProductDetailsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        productName = arguments?.getString(PRODUCT_NAME)
+        productId = arguments?.getInt(PRODUCT_ID)
 
     }
 
@@ -43,9 +43,9 @@ class ProductDetailsFragment : Fragment() {
         productPriority = view.findViewById(R.id.product_priority_textview)
         categoriesChipGroup = view.findViewById(R.id.categories_chip_group)
 
-        productName?.let {
+        productId?.let {
             val products = productViewModel.allProducts
-            val product: Product = products.first { p -> p.name == productName }
+            val product: Product = products.first { p -> p.id == productId }
             val categories = product.categories
             toolbarLayout.title = product.name
             productPriority.text = product.importance.toString()

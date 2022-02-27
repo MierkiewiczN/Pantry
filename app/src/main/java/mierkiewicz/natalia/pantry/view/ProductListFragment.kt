@@ -38,13 +38,19 @@ class ProductListFragment : Fragment() {
         return view
     }
 
+    override fun onResume() {
+        super.onResume()
+
+
+    }
+
     private fun onProductListItemClick(product: Product) {
 
         val fm = parentFragmentManager
         val bundle = Bundle()
-        bundle.putString(
-            PRODUCT_NAME,
-            product.name
+        bundle.putInt(
+            PRODUCT_ID,
+            product.id
         )
         val productDetailsFragment = ProductDetailsFragment()
         productDetailsFragment.arguments = bundle
