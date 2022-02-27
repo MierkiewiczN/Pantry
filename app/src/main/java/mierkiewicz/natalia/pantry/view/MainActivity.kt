@@ -1,12 +1,9 @@
 package mierkiewicz.natalia.pantry.view
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import mierkiewicz.natalia.pantry.R
 
@@ -28,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             when(item.itemId) {
                 R.id.recipes_menu_item -> replaceFragment(ProductListFragment.newInstance())
                 R.id.products_menu_item -> replaceFragment(productListFragment)
-                R.id.categories_menu_item -> replaceFragment(productListFragment)
+                R.id.categories_menu_item -> replaceFragment(CategoryListFragment())
             }
             true
         }
@@ -39,6 +36,5 @@ class MainActivity : AppCompatActivity() {
         setReorderingAllowed(true)
         replace(R.id.frameLayout, fragment)
     }
-
 
 }
