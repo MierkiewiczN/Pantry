@@ -11,13 +11,13 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import mierkiewicz.natalia.pantry.R
 import mierkiewicz.natalia.pantry.model.Product
-import mierkiewicz.natalia.pantry.model.Category
+import mierkiewicz.natalia.pantry.model.ProductCategory
 import mierkiewicz.natalia.pantry.viewmodel.ProductViewModel
 
 
 class ProductDetailsFragment : Fragment() {
 
-    private lateinit var productViewModel: ProductViewModel
+    private val productViewModel = ProductViewModel()
     private  var productId: Int? = null
     lateinit var toolbarLayout: CollapsingToolbarLayout
     lateinit var productQuantity: TextView
@@ -38,7 +38,6 @@ class ProductDetailsFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_product_details, container, false)
 
-        productViewModel = ProductViewModel(requireContext())
         toolbarLayout = view.findViewById(R.id.toolbar_layout)
         productQuantity = view.findViewById(R.id.product_quantity_textview)
         productPriority = view.findViewById(R.id.product_priority_textview)
@@ -46,7 +45,7 @@ class ProductDetailsFragment : Fragment() {
 
         productId?.let {
             val products = productViewModel.allProducts
-            val product: Product = products.first { p -> p.productId == productId }
+            val product: Product = products.first { p -> p.id == productId }
             val categories = product.categories
             toolbarLayout.title = product.name
             productPriority.text = product.importance.toString()
@@ -62,7 +61,7 @@ class ProductDetailsFragment : Fragment() {
         }
         return view
     }
-    private fun onCategoryChipClick(category:Category) {
+    private fun onCategoryChipClick(category:ProductCategory) {
         val fm = parentFragmentManager
         val bundle = Bundle()
         bundle.putString(

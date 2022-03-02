@@ -1,15 +1,21 @@
 package mierkiewicz.natalia.pantry.view
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import mierkiewicz.natalia.pantry.R
-import mierkiewicz.natalia.pantry.model.Category
+import mierkiewicz.natalia.pantry.model.Product
+import mierkiewicz.natalia.pantry.model.ProductCategory
+import mierkiewicz.natalia.pantry.viewmodel.ProductViewModel
+import kotlin.coroutines.coroutineContext
 
-class CategoryRecyclerViewAdapter(private val categories: List<Category>,
-                                  private val onClick: (category: Category) -> Unit
+class CategoryRecyclerViewAdapter(private val categories: List<ProductCategory>,
+                                  private val onClick: (category: ProductCategory) -> Unit
 ) : RecyclerView.Adapter<CategoryRecyclerViewAdapter.CategoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
@@ -35,12 +41,12 @@ class CategoryRecyclerViewAdapter(private val categories: List<Category>,
 
     override fun getItemCount(): Int = categories.size ?: run {0}
 
-    inner class CategoryViewHolder(categoryView: View, val onClick: (category: Category) -> Unit) :
+    inner class CategoryViewHolder(categoryView: View, val onClick: (category: ProductCategory) -> Unit) :
         RecyclerView.ViewHolder(categoryView) {
         val nameView: TextView = categoryView.findViewById(R.id.category_name)
         val descriptionView: TextView = categoryView.findViewById(R.id.category_description)
 
-        var category: Category? = null
+        var category: ProductCategory? = null
 
         init {
             categoryView.setOnClickListener {

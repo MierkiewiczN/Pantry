@@ -11,15 +11,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import mierkiewicz.natalia.pantry.R
-import mierkiewicz.natalia.pantry.model.Category
+import mierkiewicz.natalia.pantry.model.ProductCategory
 import mierkiewicz.natalia.pantry.viewmodel.ProductViewModel
 
 const val ARG_ITEM_ID = "item_id"
 
 class CategoryDetailsFragment : Fragment() {
 
-    lateinit var productViewModel: ProductViewModel
-    private var category: Category? = null
+    val productViewModel = ProductViewModel()
+    private var category: ProductCategory? = null
 
     lateinit var itemDetailTextView: TextView
     private var toolbarLayout: CollapsingToolbarLayout? = null
@@ -39,7 +39,6 @@ class CategoryDetailsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        productViewModel = ProductViewModel(requireContext())
         arguments?.let {
             if (it.containsKey(ARG_ITEM_ID)) {
                 category = productViewModel.allCategories.first { c -> c.name == it.getString(ARG_ITEM_ID)}

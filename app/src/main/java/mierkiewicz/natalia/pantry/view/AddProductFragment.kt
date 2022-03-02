@@ -1,17 +1,21 @@
 package mierkiewicz.natalia.pantry.view
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.children
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import mierkiewicz.natalia.pantry.R
 import mierkiewicz.natalia.pantry.model.ImportanceLevel
 import mierkiewicz.natalia.pantry.model.Product
+import mierkiewicz.natalia.pantry.model.ProductCategory
 import mierkiewicz.natalia.pantry.model.QuantityLevel
 import mierkiewicz.natalia.pantry.viewmodel.ProductViewModel
 
@@ -20,7 +24,7 @@ open class AddProductFragment : Fragment() {
 
     private var productId: Int? = null
 
-    lateinit var productViewModel: ProductViewModel
+    val productViewModel = ProductViewModel()
 
     lateinit var addProductButton: Button
     lateinit var productNameEditText: EditText
@@ -31,7 +35,6 @@ open class AddProductFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         productId = arguments?.getInt(PRODUCT_ID)
         super.onCreate(savedInstanceState)
-        productViewModel = ProductViewModel(requireContext())
     }
 
     override fun onCreateView(
@@ -94,7 +97,7 @@ open class AddProductFragment : Fragment() {
         val bundle = Bundle()
         bundle.putInt(
             PRODUCT_ID,
-            product.productId
+            product.id
         )
         val productDetailsFragment = ProductDetailsFragment()
         productDetailsFragment.arguments = bundle
