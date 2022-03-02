@@ -7,14 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import mierkiewicz.natalia.pantry.R
-import mierkiewicz.natalia.pantry.databinding.FragmentCategoryListBinding
-import mierkiewicz.natalia.pantry.model.ProductCategory
+import mierkiewicz.natalia.pantry.model.Category
 import mierkiewicz.natalia.pantry.viewmodel.ProductViewModel
 
 
 class CategoryListFragment : Fragment() {
 
-    val productViewModel = ProductViewModel()
+    lateinit var productViewModel: ProductViewModel
 
 
     override fun onCreateView(
@@ -22,6 +21,7 @@ class CategoryListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        productViewModel = ProductViewModel(requireContext())
         val view = inflater.inflate(R.layout.fragment_category_list, container, false)
         return view
 
@@ -42,7 +42,7 @@ class CategoryListFragment : Fragment() {
         }
     }
 
-    private fun onCategoryListItemClick(category: ProductCategory) {
+    private fun onCategoryListItemClick(category: Category) {
         val fm = parentFragmentManager
         val bundle = Bundle()
         bundle.putString(

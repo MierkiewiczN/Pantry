@@ -1,50 +1,57 @@
 package mierkiewicz.natalia.pantry.viewmodel
 
+import android.app.Application
+import android.content.Context
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
+import mierkiewicz.natalia.pantry.database.AppDatabase
 import mierkiewicz.natalia.pantry.model.ImportanceLevel
 import mierkiewicz.natalia.pantry.model.Product
-import mierkiewicz.natalia.pantry.model.ProductCategory
+import mierkiewicz.natalia.pantry.model.Category
 import mierkiewicz.natalia.pantry.model.QuantityLevel
-import mierkiewicz.natalia.pantry.repository.ProductRepository
 
-class ProductViewModel(): ViewModel() {
+class ProductViewModel(context: Context): ViewModel() {
 
-    val allProducts = productsMap.values.toList()
 
-    fun productsByCategory(category: ProductCategory) =
+    val database: AppDatabase = AppDatabase.getDatabase(context)
+
+    val allProducts = database.productDao().getAllProducts()
+
+    fun productsByCategory(category: Category) =
         productsMap.values.filter { it.categories.contains(category) }
 
     fun productById(id: Int?) = productsMap[id]
 
     fun addProduct(product: Product) {
-        productsMap[product.id] = product
+        database.productDao().insert(product)
+        productsMap[product.productId] = product
     }
 
     fun removeProduct(id: Int) {
         productsMap.remove(id)
     }
-    val allCategories = productCategories
 
-    fun addProductCategory(category: ProductCategory) {
+    val allCategories = database.productCategoryDao().getAllCategories()
+
+    fun addProductCategory(category: Category) {
+        database.productCategoryDao().insert(category)
         productCategories.add(category)
     }
 
     fun removeProductCategory(id: Int) {
-        productCategories.removeIf { c -> c.id == id }
+        productCategories.removeIf { c -> c.categoryId == id }
     }
 
     companion object {
         private val productCategories = mutableListOf(
-            ProductCategory(
+            Category(
                 name = "Category 1",
                 description = "Longer description of category 1"
             ),
-            ProductCategory(
+            Category(
                 name = "Category 2",
                 description = ""
             ),
-            ProductCategory(
+            Category(
                 name = "Category 3",
                 description = "Short description"
             )
@@ -143,7 +150,7 @@ class ProductViewModel(): ViewModel() {
             )
         )
 
-        val productsMap = products.associateBy { it.id }.toMutableMap()
+        val productsMap = products.associateBy { it.productId }.toMutableMap()
     }
 }
 

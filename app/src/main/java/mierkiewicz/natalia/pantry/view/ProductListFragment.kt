@@ -9,15 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import mierkiewicz.natalia.pantry.R
 import mierkiewicz.natalia.pantry.model.Product
-import mierkiewicz.natalia.pantry.model.ProductCategory
+import mierkiewicz.natalia.pantry.model.Category
 import mierkiewicz.natalia.pantry.viewmodel.ProductViewModel
 
 const val PRODUCT_NAME = "product name"
 
 class ProductListFragment : Fragment() {
 
-    private val productViewModel = ProductViewModel()
-    private var category: ProductCategory? = null
+    lateinit var productViewModel: ProductViewModel
+    private var category: Category? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,6 +26,7 @@ class ProductListFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_product_list, container, false)
 
+        productViewModel = ProductViewModel(requireContext())
         val products = category?.let { productViewModel.productsByCategory(it) }
             ?: productViewModel.allProducts
 
@@ -50,7 +51,7 @@ class ProductListFragment : Fragment() {
         val bundle = Bundle()
         bundle.putInt(
             PRODUCT_ID,
-            product.id
+            product.productId
         )
         val productDetailsFragment = ProductDetailsFragment()
         productDetailsFragment.arguments = bundle
@@ -63,7 +64,7 @@ class ProductListFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(category: ProductCategory? = null): ProductListFragment = with (category) {
+        fun newInstance(category: Category? = null): ProductListFragment = with (category) {
             val productsListFragment = ProductListFragment()
             productsListFragment.category = category
             return productsListFragment
