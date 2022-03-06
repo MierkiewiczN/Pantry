@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.recipes_menu_item -> replaceFragment(ProductListFragment.newInstance())
-                R.id.products_menu_item -> replaceFragment(productListFragment)
+                R.id.products_menu_item -> replaceFragment(ProductListFragment.newInstance())
                 R.id.categories_menu_item -> replaceFragment(CategoryListFragment())
             }
             true
